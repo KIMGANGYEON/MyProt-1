@@ -1,18 +1,19 @@
 import { Helmet } from "react-helmet";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-
 import { Pagination, Navigation } from "swiper/modules";
+
+import img1 from "../img/1.jpg";
+import img2 from "../img/2.jpg";
 
 function ProtShow() {
   return (
     <>
       <Helmet>
-        <title>Show</title>
+        <title>ProjectShow</title>
       </Helmet>
       <div className="show">
         <Swiper
@@ -26,7 +27,14 @@ function ProtShow() {
           modules={[Pagination, Navigation]}
           className="mySwiper"
         >
-          <SwiperSlide>Slide 1</SwiperSlide>
+          <SwiperSlide>
+            <div id="slide1">
+              <img className="filter" src={img1} />
+              <div className="imgbox">
+                <img src={img2} />
+              </div>
+            </div>
+          </SwiperSlide>
           <SwiperSlide>Slide 2</SwiperSlide>
           <SwiperSlide>Slide 3</SwiperSlide>
           <SwiperSlide>Slide 4</SwiperSlide>
