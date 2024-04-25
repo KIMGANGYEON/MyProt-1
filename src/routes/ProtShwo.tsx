@@ -8,8 +8,42 @@ import { Pagination, Navigation } from "swiper/modules";
 
 import img1 from "../img/1.jpg";
 import img2 from "../img/2.jpg";
+import { useEffect, useState } from "react";
+import gsap from "gsap";
+import { Link } from "react-router-dom";
 
 function ProtShow() {
+  const [rotateX, setRotateX] = useState(0);
+  const [rotateY, setRotateY] = useState(0);
+
+  const mouseMove = function (e: React.MouseEvent<HTMLElement>) {
+    const pageX = e.pageX;
+    const pageY = e.pageY;
+
+    const standardX = window.innerWidth / 2 - pageX;
+    const standardY = window.innerHeight / 2 - pageY;
+
+    const newRotateX = standardX / 20;
+    const newRotateY = standardY / 20;
+
+    setRotateX(newRotateY);
+    setRotateY(newRotateX);
+
+    gsap.to(".imgbox", {
+      duration: 0.3,
+      rotateX: newRotateY,
+      rotateY: newRotateX,
+    });
+  };
+  const mouseOut = function () {
+    gsap.to(".imgbox", {
+      duration: 0.5,
+      rotateX: 0,
+      rotateY: 0,
+      rotateZ: 0,
+    });
+  };
+
   return (
     <>
       <Helmet>
@@ -30,9 +64,15 @@ function ProtShow() {
           <SwiperSlide>
             <div id="slide1">
               <img className="filter" src={img1} />
-              <div className="imgbox">
-                <img src={img2} />
-              </div>
+              <Link to="/Project01">
+                <div
+                  className="imgbox"
+                  onMouseMove={mouseMove}
+                  onMouseOut={mouseOut}
+                >
+                  <img src={img2} />
+                </div>
+              </Link>
             </div>
           </SwiperSlide>
           <SwiperSlide>Slide 2</SwiperSlide>

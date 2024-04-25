@@ -110,7 +110,16 @@ section {
 }
 body {
  
-  
+  scroll-behavior: smooth;
+  /* &::-webkit-scrollbar {
+    width: 5px;
+    background-color: #1b1b1b
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: gray;
+  } */
+ 
   
 }
 a {
