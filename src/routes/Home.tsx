@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Home() {
   return (
-    <>
+    <div className="home">
       <Helmet>
         <title>Main</title>
       </Helmet>
@@ -11,7 +11,7 @@ function Home() {
       <Link to={"ProtShow"}>
         <button>click</button>
       </Link>
-    </>
+    </div>
   );
 }
 export default Home;
