@@ -18,6 +18,15 @@ import clo10 from "../img/clo10.jpg";
 import clo11 from "../img/clo11.jpg";
 import clo12 from "../img/clo12.jpg";
 import clo13 from "../img/clo13.jpg";
+import clo14 from "../img/clo14.jpg";
+import clo15 from "../img/clo15.jpg";
+import clo16 from "../img/clo16.jpg";
+import clo17 from "../img/clo17.jpg";
+import back01 from "../img/back01.jpg";
+import back02 from "../img/back02.jpg";
+import back03 from "../img/back03.jpg";
+import back04 from "../img/back04.jpg";
+import back05 from "../img/back05.jpg";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -28,6 +37,76 @@ function Project01() {
   const onClick = () => {
     setTimeout(() => {}, 2000);
     setVideo(false);
+  };
+
+  const [text, setText] = useState(1);
+  const [center, setCenter] = useState(0);
+  const stageWidth = document.querySelector(".imgBox");
+  const goLeft = () => {
+    if (center > -100) {
+      return;
+    } else {
+      setText((prev) => prev - 1);
+      setCenter((prev) => prev + 100);
+    }
+  };
+  const goRight = () => {
+    if (text > 4) {
+      return;
+    } else {
+      setText((prev) => prev + 1);
+      setCenter((prev) => prev - 100);
+    }
+  };
+
+  const [slide1, setSlide1] = useState(0);
+  const [slide2, setSlide2] = useState(0);
+  const [slide3, setSlide3] = useState(0);
+  const [slide4, setSlide4] = useState(0);
+  const [opacity1, setOpacity1] = useState(0);
+  const [opacity2, setOpacity2] = useState(0);
+  const [opacity3, setOpacity3] = useState(0);
+  const [opacity4, setOpacity4] = useState(1);
+
+  const click1 = () => {
+    setOpacity1(1);
+    setOpacity2(0);
+    setOpacity3(0);
+    setOpacity4(0);
+    setSlide1(0);
+    setSlide2(59);
+    setSlide3(59);
+    setSlide4(59);
+  };
+  const click2 = () => {
+    setOpacity1(0);
+    setOpacity2(1);
+    setOpacity3(0);
+    setOpacity4(0);
+    setSlide1(0);
+    setSlide2(0);
+    setSlide3(59);
+    setSlide4(59);
+  };
+  const click3 = () => {
+    setOpacity1(0);
+    setOpacity2(0);
+    setOpacity3(1);
+    setOpacity4(0);
+    setSlide1(0);
+    setSlide2(0);
+    setSlide3(0);
+    setSlide4(59);
+  };
+  const click4 = () => {
+    setOpacity1(0);
+    setOpacity2(0);
+    setOpacity3(0);
+    setOpacity4(1);
+    setSlide1(0);
+    setSlide2(0);
+    setSlide3(0);
+    setSlide4(0);
   };
 
   return (
@@ -107,6 +186,91 @@ function Project01() {
                 <img src={clo13} alt="" />
               </div>
             </div>
+            <div className="backStage">
+              <div className="stage">stage</div>
+              <div
+                className="imgBox"
+                style={{ transform: `translateX(${center}vw)` }}
+              >
+                <div className="imgWidth">
+                  <img src={back01} alt="" />
+                </div>
+                <div className="imgWidth">
+                  <img src={back02} alt="" />
+                </div>
+                <div className="imgWidth">
+                  <img src={back03} alt="" />
+                </div>
+                <div className="imgWidth">
+                  <img src={back04} alt="" />
+                </div>
+                <div className="imgWidth">
+                  <img src={back05} alt="" />
+                </div>
+              </div>
+              <div className="btn-box">
+                <button onClick={goLeft}>←</button>
+                <h1>
+                  <span>0{text} </span>/ 05
+                </h1>
+                <button onClick={goRight}>→</button>
+              </div>
+            </div>
+            <div className="lookBook">
+              <div
+                className="slideBox"
+                onClick={click1}
+                style={{ transform: `translateX(${slide1}vw)` }}
+              >
+                <div className="text">
+                  <h1>Look Book &nbsp;1</h1>
+                </div>
+                <div className="imgSet" style={{ opacity: opacity1 }}>
+                  <img src={clo14} alt="" />
+                  <h3>Look 1</h3>
+                </div>
+              </div>
+              <div
+                className="slideBox"
+                onClick={click2}
+                style={{ transform: `translateX(${slide2}vw)` }}
+              >
+                <div className="text">
+                  <h1>Look Book 2</h1>
+                </div>
+                <div className="imgSet" style={{ opacity: opacity2 }}>
+                  <img src={clo15} alt="" />
+                  <h3>Look 2</h3>
+                </div>
+              </div>
+              <div
+                className="slideBox"
+                onClick={click3}
+                style={{ transform: `translateX(${slide3}vw)` }}
+              >
+                <div className="text">
+                  <h1>Look Book 3</h1>
+                </div>
+                <div className="imgSet" style={{ opacity: opacity3 }}>
+                  <img src={clo16} alt="" />
+                  <h3>Look 3</h3>
+                </div>
+              </div>
+              <div
+                className="slideBox"
+                onClick={click4}
+                style={{ transform: `translateX(${slide4}vw)` }}
+              >
+                <div className="text">
+                  <h1>Look Book 4</h1>
+                </div>
+                <div className="imgSet" style={{ opacity: opacity4 }}>
+                  <img src={clo17} alt="" />
+                  <h3>Look 4</h3>
+                </div>
+              </div>
+            </div>
+            <div>asfasfasdasdf</div>
           </div>
         )}
       </div>

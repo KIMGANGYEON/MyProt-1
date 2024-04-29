@@ -153,6 +153,125 @@ body {
         }
       }
     }
+    .backStage {
+      overflow: hidden;
+      position: relative;
+      .stage {
+        text-transform: uppercase;
+        text-align: center;
+      }
+      .imgBox {
+        display: flex;
+        width: 500vw;
+        transition: all 0.5s ease-in-out;
+        .imgWidth {
+          width: 100vw;
+
+          img {
+            height: 100vh;
+            width: 100vw;
+            padding: 4vw 2vw;
+            object-fit: cover;
+          }
+        }
+      }
+      .btn-box {
+        position: absolute;
+        width: 20%;
+        bottom: 1vw;
+        right: 1vw;
+        display: flex;
+        justify-content: space-between;
+        button {
+          font-size: 2vw;
+          background-color: transparent;
+          color: white;
+          border: none;
+          cursor: pointer;
+          &:hover {
+            color: gray;
+          }
+        }
+        h1 {
+          font-size: 2vw;
+        }
+      }
+      .stage {
+        font-size: 4vw;
+        padding: 0 0 1vw 2vw;
+      }
+    }
+    .lookBook {
+      // height: 90vh;
+      border-top: 1px solid white;
+      position: relative;
+      overflow: hidden;
+      .slideBox {
+        display: flex;
+        transition: all 0.3s linear;
+        .text {
+          width: 10vw;
+          height: 100vh;
+          background-color: #444444;
+          display: flex;
+          align-items: flex-end;
+          justify-content: center;
+          border-right: 1px solid white;
+          cursor: pointer;
+          h1 {
+            font-size: 3vw;
+            writing-mode: vertical-rl;
+            padding-bottom: 3vw;
+          }
+        }
+        .imgSet {
+          padding: 2vw;
+          margin-left: 5vw;
+          transition: all 0.3s;
+          img {
+            width: 25vw;
+          }
+          h3 {
+            font-size: 5vw;
+          }
+        }
+        &:nth-child(1) {
+          position: relative;
+          z-index: 1;
+          .imgSet {
+            opacity: 0;
+          }
+        }
+        &:nth-child(2) {
+          position: absolute;
+          z-index: 2;
+          top: 0;
+          left: 10vw;
+          .imgSet {
+            opacity: 0;
+          }
+        }
+        &:nth-child(3) {
+          position: absolute;
+          z-index: 2;
+          top: 0;
+          left: 20vw;
+          .imgSet {
+            opacity: 0;
+          }
+        }
+        &:nth-child(4) {
+          position: absolute;
+          z-index: 2;
+          top: 0;
+          left: 30vw;
+          .imgSet {
+            opacity: 1;
+          }
+        }
+      }
+    }
+
     @media (max-width: 800px) {
       .Project01 {
         .main {
