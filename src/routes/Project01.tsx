@@ -1,7 +1,7 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 import { Helmet } from "react-helmet";
-import Lenis from "@studio-freight/lenis";
+import splitting from "splitting";
 
 // IMG
 import img2 from "../img/2.jpg";
@@ -27,6 +27,8 @@ import back02 from "../img/back02.jpg";
 import back03 from "../img/back03.jpg";
 import back04 from "../img/back04.jpg";
 import back05 from "../img/back05.jpg";
+import dig01 from "../img/dig01.jpg";
+import dig02 from "../img/dig02.jpg";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -108,6 +110,13 @@ function Project01() {
     setSlide3(0);
     setSlide4(0);
   };
+
+  useEffect(() => {
+    splitting({ target: ".womens" });
+    splitting({ target: ".mens" });
+    splitting({ target: ".bags" });
+    splitting({ target: ".gifts" });
+  }, [onClick]);
 
   return (
     <>
@@ -270,7 +279,83 @@ function Project01() {
                 </div>
               </div>
             </div>
-            <div>asfasfasdasdf</div>
+            <div className="goShop">
+              <div>
+                <a
+                  href="https://www.prada.com/kr/ko/womens/ready-to-wear/c/10048KR"
+                  target="_blank"
+                >
+                  <h1 className="womens">Womens &rarr;</h1>
+                </a>
+              </div>
+              <div>
+                <a
+                  href="https://www.prada.com/kr/ko/mens/ready-to-wear/c/10130KR"
+                  target="_blank"
+                >
+                  <h1 className="mens">Mens &rarr;</h1>
+                </a>
+              </div>
+              <div>
+                <a
+                  href="https://www.prada.com/kr/ko/womens/essentials/c/10100KR"
+                  target="_blank"
+                >
+                  <h1 className="bags">Bags &rarr;</h1>
+                </a>
+              </div>
+              <div>
+                <a
+                  href="https://www.prada.com/kr/ko/womens/gifts/c/10108KR"
+                  target="_blank"
+                >
+                  <h1 className="gifts">Gifts &rarr;</h1>
+                </a>
+              </div>
+            </div>
+            <div className="designed">
+              <div className="right">
+                <h1>prada</h1>
+                <h1>prada 2024 fw womenwear</h1>
+              </div>
+              <div className="left">
+                <h1>designed by</h1>
+                <div className="footer">
+                  <h2>raf simons</h2>
+                  <h2>Muccia Prada Bianchi</h2>
+                </div>
+                <div className="imgBox">
+                  <img src={dig01} alt="" />
+                  <img src={dig02} alt="" />
+                </div>
+              </div>
+            </div>
+            <div className="lastSection">
+              <div className="video__grid">
+                <video autoPlay muted loop>
+                  <source src="/videos/prada3.mp4" type="video/mp4" />
+                </video>
+                <video autoPlay muted loop>
+                  <source src="/videos/prada2.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <div className="text">
+                <h1>
+                  A knowledge of history not only informs the contemporaneous,
+                  but defines it – clothes are referent to different eras, other
+                  times, synchronous echoes recontextualized. The past is an
+                  instrument, a tool for learning, used here to try to invent
+                  something new. Yet rather than an intellectual examination,
+                  this collection is an emotional reaction, to ideals of beauty
+                  that still feel resonant.
+                </h1>
+              </div>
+              <div className="lastVideo">
+                <video autoPlay muted loop>
+                  <source src="/videos/prada4.mp4" type="video/mp4" />
+                </video>
+              </div>
+            </div>
           </div>
         )}
       </div>

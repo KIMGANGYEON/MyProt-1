@@ -271,13 +271,139 @@ body {
         }
       }
     }
+    .goShop {
+      background-color: #303026;
+      color: #c7b09b;
+      padding: 3vw;
+      div {
+        transition: 0.3s;
+        border-bottom: 3px solid #c7b09b;
+        h1 {
+          font-size: 9vw;
+          width: 50%;
+          overflow: hidden;
+          cursor: pointer;
+          .char {
+            display: inline-block;
+            position: relative;
+            color: transparent;
 
+            &::before,
+            &::after {
+              position: absolute;
+              top: 0;
+              left: 0;
+              opacity: 1;
+              color: #c7b09b;
+              content: attr(data-char);
+              transition: transform 0.3s ease-in;
+              transition-delay: calc(30ms * var(--char-index));
+            }
+            &::before {
+              transform: translateY(100%);
+            }
+          }
+          &:hover {
+            .char::before {
+              transform: translateY(0%);
+              opacity: 1;
+            }
+            .char::after {
+              transform: translateY(-100%);
+            }
+          }
+        }
+      }
+    }
+    .designed {
+      height: 90vh;
+      display: grid;
+      grid-template-columns: 0.5fr 1fr;
+      padding: 3vw;
+      .right {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        h1 {
+          font-size: 2vw;
+        }
+      }
+      .left {
+        margin-left: 2vw;
+        h1 {
+          font-size: 6vw;
+        }
+      }
+      .footer {
+        display: flex;
+        justify-content: space-between;
+        font-size: 2.5vw;
+        margin-top: 3vw;
+      }
+      .imgBox {
+        display: flex;
+        gap: 4vw;
+        justify-content: space-around;
+        img {
+          height: 43vh;
+        }
+      }
+    }
+    .lastSection {
+      background-color: #dbd7d2;
+      .video__grid {
+        padding: 5vw 10vw;
+        display: flex;
+        gap: 2vw;
+        video {
+          // width: 50%;
+          &:nth-child(1) {
+            width: 60%;
+          }
+          &:nth-child(2) {
+            width: 30%;
+            padding-top: 40vw;
+          }
+        }
+      }
+      .text {
+        padding: 2vw;
+        h1 {
+          color: black;
+          text-align: center;
+          font-size: 4vw;
+          line-height: 1;
+        }
+      }
+      .lastVideo {
+        overflow: hidden;
+        margin-top: 5vw;
+        video {
+          display: block;
+          height: 100vh;
+          width: 100vw;
+          object-fit: cover;
+        }
+      }
+    }
     @media (max-width: 800px) {
       .Project01 {
         .main {
           .header {
             height: 45vh;
           }
+        }
+      }
+      .lookBook {
+        .slideBox {
+          .text {
+            height: 50vh;
+          }
+        }
+      }
+      .designed {
+        img {
+          width: 30vw;
         }
       }
     }
