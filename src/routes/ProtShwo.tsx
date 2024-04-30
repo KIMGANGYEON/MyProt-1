@@ -8,9 +8,13 @@ import { Pagination, Navigation } from "swiper/modules";
 
 import img1 from "../img/1.jpg";
 import img2 from "../img/2.jpg";
+import show01 from "../img/project02/show01.jpg";
+import show02 from "../img/project02/show02.jpg";
+
 import { useEffect, useState } from "react";
-import gsap from "gsap";
 import { Link } from "react-router-dom";
+
+import gsap from "gsap";
 
 function ProtShow() {
   const [rotateX, setRotateX] = useState(0);
@@ -75,7 +79,20 @@ function ProtShow() {
               </Link>
             </div>
           </SwiperSlide>
-          <SwiperSlide>Slide 2</SwiperSlide>
+          <SwiperSlide>
+            <div id="slide1">
+              <img className="filter" src={show01} />
+              <Link to="/Project02">
+                <div
+                  className="imgbox"
+                  onMouseMove={mouseMove}
+                  onMouseOut={mouseOut}
+                >
+                  <img src={show02} />
+                </div>
+              </Link>
+            </div>
+          </SwiperSlide>
           <SwiperSlide>Slide 3</SwiperSlide>
           <SwiperSlide>Slide 4</SwiperSlide>
           <SwiperSlide>Slide 5</SwiperSlide>
