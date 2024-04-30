@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
+const ACCESS_TOKEN_KEY = process.env.ACCESS_TOKEN_KEY;
 function Project02() {
-  const ACCESS_TOKEN_KEY = process.env.ACCESS_TOKEN_KEY;
   const [people, setPeople] = useState([]);
 
   useEffect(() => {
