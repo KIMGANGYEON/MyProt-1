@@ -1,0 +1,35 @@
+.project02 {
+  overflow: hidden;
+  section {
+    height: 100vh;
+    width: 100vw;
+    background-color: #2d2d2d;
+    color: white;
+  }
+  .con1 {
+  }
+  .con2 {
+  }
+  .con3 {
+  }
+  .con4 {
+  }
+  .con5 {
+  }
+  .con6 {
+  }
+  .con7 {
+  }
+  .con8 {
+  }
+  .con9 {
+  }
+  #horizontal {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 500%;
+  }
+  #horizontal > section {
+    width: 100%;
+  }
+}
