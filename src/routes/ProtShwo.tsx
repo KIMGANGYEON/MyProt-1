@@ -80,8 +80,8 @@ function ProtShow() {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div id="slide1">
-              <img className="filter" src={show01} />
+            <div id="slide1" style={{ backgroundColor: "blue" }}>
+              {/* <img className="filter" src={show01} /> */}
               <Link to="/Project02">
                 <div
                   className="imgbox"

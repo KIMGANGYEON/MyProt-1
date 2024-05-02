@@ -1,46 +1,48 @@
-import { useEffect, useLayoutEffect, useState } from "react";
-import axios from "axios";
+import { useQuery } from "react-query";
+import { useEffect } from "react";
 import { Helmet } from "react-helmet";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { fetchNews } from "../api";
 gsap.registerPlugin(ScrollTrigger);
 
 interface INewsData {
-  title: string;
-  originallink: string;
-  link: string;
-  description: string;
-  pubDate: string;
+  data: {
+    items: {
+      title: string;
+      originallink: string;
+      link: string;
+      description: string;
+      pubDate: string;
+    };
+  };
 }
 
-const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
-const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET;
-
 function Project02() {
-  const [news, setNews] = useState<any>([]);
-
+  const { isLoading, data } = useQuery<INewsData | any>("allnews", fetchNews);
   useEffect(() => {
-    const fetchNews = async () => {
-      try {
-        const response = await axios.get("/v1/search/news.json", {
-          params: {
-            query: encodeURIComponent("사회"),
-            display: 10,
-            start: 1,
-            sort: "sim",
-          },
-          headers: {
-            "X-Naver-Client-Id": CLIENT_ID,
-            "X-Naver-Client-Secret": CLIENT_SECRET,
-          },
-        });
-        console.log(response);
-      } catch (error) {
-        console.error("Error fetching news", error);
-      }
-    };
-    fetchNews();
+    // const fetchNews = async () => {
+    //   try {
+    //     const response = await axios.get("/v 1/search/news.json", {
+    //       params: {
+    //         query: "김민재",
+    //         display: 10,
+    //         start: 1,
+    //         sort: "sim",
+    //       },
+    //       headers: {
+    //         "X-Naver-Client-Id": CLIENT_ID,
+    //         "X-Naver-Client-Secret": CLIENT_SECRET,
+    //       },
+    //     });
+    //     setNews(response);
+    //     console.log(response.data.items);
+    //   } catch (error) {
+    //     console.error("Error fetching news", error);
+    //   }
+    // };
+    // fetchNews();
   }, []);
 
   useEffect(() => {
@@ -83,6 +85,10 @@ function Project02() {
             <p>집값</p>
             <p>노인빈곤율</p>
             <p>빈부격차</p>
+            {/* data.items[0].title.replace(/<[^>]*>/g, " ") */}
+            <span>
+              {data?.data.items[6].description.replace(/<[^>]*>/g, " ")}
+            </span>
           </div>
         </section>
         <section className="con2">hello2</section>
