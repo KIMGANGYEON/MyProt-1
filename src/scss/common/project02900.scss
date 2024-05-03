@@ -1,5 +1,5 @@
 .project02 {
-  @media (max-width: 900px) {
+  @media (max-width: 1000px) {
     .header {
       justify-content: space-between;
       padding: 0px 4vw;
@@ -10,8 +10,10 @@
       }
     }
     .main {
+      overflow: hidden;
       .main__header {
-        display: none;
+        display: flex;
+        width: 100vw;
       }
       .con01 {
         display: flex;
