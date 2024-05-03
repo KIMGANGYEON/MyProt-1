@@ -1,35 +1,103 @@
 .project02 {
-  overflow: hidden;
-  section {
-    height: 100vh;
-    width: 100vw;
-    background-color: #2d2d2d;
-    color: white;
-  }
-  .con1 {
-  }
-  .con2 {
-  }
-  .con3 {
-  }
-  .con4 {
-  }
-  .con5 {
-  }
-  .con6 {
-  }
-  .con7 {
-  }
-  .con8 {
-  }
-  .con9 {
-  }
-  #horizontal {
+  .header {
     display: flex;
-    flex-wrap: nowrap;
-    width: 500%;
-  }
-  #horizontal > section {
+    justify-content: space-around;
+    align-items: center;
+    background-color: black;
+    color: white;
+    height: 40px;
+    position: sticky;
+    top: 0;
     width: 100%;
+    font-weight: 600;
+    .left-side {
+      display: flex;
+      align-items: center;
+      gap: 2vw;
+      height: 100%;
+      .red-box {
+        background-color: red;
+        height: 100%;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+      }
+    }
+    .right-side {
+      display: flex;
+      gap: 2vw;
+      align-items: center;
+    }
+    a,
+    .icon {
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+  .main {
+    padding: 3vw 10vw;
+    font-family: "Gothic A1", sans-serif;
+    .main__header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      span {
+        display: flex;
+        color: red;
+        font-weight: bold;
+        p {
+          font-weight: 600;
+          color: black;
+        }
+      }
+      p:not(:first-child) {
+        border-left: 2px solid rgba(0, 0, 0, 0.209);
+        margin-left: 2vw;
+        padding-left: 2vw;
+        font-weight: 600;
+      }
+    }
+    .con01 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin-top: 50px;
+      gap: 2vw;
+
+      .kim {
+        margin-top: 2vw;
+        h1 {
+          font-size: 2.5vw;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+        img {
+          display: inline-block;
+          margin: 1vw 0;
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+        span {
+          display: block;
+          font-size: 1.5vw;
+          width: 100%;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+      .trump {
+        display: flex;
+        gap: 1vw;
+        .trump01 {
+          width: 50%;
+          img {
+            width: 100%;
+          }
+        }
+      }
+    }
   }
 }

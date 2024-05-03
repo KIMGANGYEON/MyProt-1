@@ -5,7 +5,7 @@ export async function fetchNews() {
   const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET;
   const response = await axios.get("/v1/search/news.json", {
     params: {
-      query: "김민재",
+      query: "트럼프",
       display: 10,
       start: 1,
       sort: "sim",
