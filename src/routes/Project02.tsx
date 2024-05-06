@@ -1,5 +1,5 @@
 import { useQuery } from "react-query";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 
 import gsap from "gsap";
@@ -14,6 +14,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import news01 from "../img/project02/news01.jpeg";
 import news02 from "../img/project02/news02.jpeg";
+import news03 from "../img/project02/news03.jpeg";
+import messi from "../img/project02/messi.jpeg";
 
 gsap.registerPlugin(ScrollTrigger);
 const Wrap = styled.div`
@@ -58,6 +60,11 @@ function Project02() {
     // };
     // fetchNews();
   }, []);
+
+  const [moveRight, setMoveRight] = useState(0);
+  const onClick = () => {
+    setMoveRight(100);
+  };
 
   return (
     <>
@@ -120,7 +127,10 @@ function Project02() {
             </div>
           </div>
           <div className="main">
-            <div className="main__header">
+            <div
+              className="main__header"
+              style={{ transform: `translateX({${moveRight}}vw)` }}
+            >
               <span>
                 현재 대한민국 뜨거운 주제&nbsp;:&nbsp;<p>출산율</p>
               </span>
@@ -130,6 +140,7 @@ function Project02() {
               <p>국민연금</p>
               <p>네이버 라인</p>
               <p>청년실업</p>
+              <button onClick={onClick}>→</button>
             </div>
             <div className="con01">
               <div className="kim">
@@ -187,9 +198,116 @@ function Project02() {
                 </div>
               </div>
             </div>
+            <div className="con02">
+              <div className="con02-right">
+                <div className="con02-right-top">
+                  <div className="empty"></div>
+                  <h1>more top stories</h1>
+                </div>
+                <div className="messi">
+                  <div className="messi-img">
+                    <img src={messi} alt="" />
+                    <span>
+                      ‘기록 파괴자’ 메시, 1골 5도움으로 MLS 신기록 작성
+                    </span>
+                  </div>
 
-            <div></div>
+                  <h6>
+                    리오넬 메시(인터 마이애미)가 미국 무대에서도 여전한 활약을
+                    이어가고 있다.
+                  </h6>
+                  <h6>
+                    리오넬 메시(인터 마이애미)가 미국 무대에서도 여전한 활약을
+                    이어가고 있다.
+                  </h6>
+                  <h6>
+                    리오넬 메시(인터 마이애미)가 미국 무대에서도 여전한 활약을
+                    이어가고 있다.
+                  </h6>
+                  <h6>
+                    리오넬 메시(인터 마이애미)가 미국 무대에서도 여전한 활약을
+                    이어가고 있다.
+                  </h6>
+                  <h6>
+                    리오넬 메시(인터 마이애미)가 미국 무대에서도 여전한 활약을
+                    이어가고 있다.
+                  </h6>
+                  <h6>
+                    리오넬 메시(인터 마이애미)가 미국 무대에서도 여전한 활약을
+                    이어가고 있다.
+                  </h6>
+                </div>
+              </div>
+              <div className="con02-center">
+                <div className="con02-center-header">
+                  <div className="empty"></div>
+                  <h1>FEATURED</h1>
+                </div>
+                <div className="video-box">
+                  <video autoPlay loop muted>
+                    <source src="/videos/cnn01.mp4" type="video/mp4" />
+                  </video>
+                  <h1>
+                    '묘지처럼 침묵': 호주 그레이트 배리어 리프의 암울한 경고
+                  </h1>
+                </div>
+                <div className="con02-center-bottom01">
+                  <img src={news03} alt="" />
+                  <h1>
+                    유럽연합, EU와 일본이 2026년부터 달 표면 탐사 등 새로운
+                    우주개발 사업을 공동으로 시작합니다.
+                  </h1>
+                </div>
+                <div className="con02-center-bottom01">
+                  <img src={news03} alt="" />
+                  <h1>
+                    유럽연합, EU와 일본이 2026년부터 달 표면 탐사 등 새로운
+                    우주개발 사업을 공동으로 시작합니다.
+                  </h1>
+                </div>
+              </div>
+              <div className="con02-right">
+                <div className="con02-right-top">
+                  <div className="empty"></div>
+                  <h1>more top stories</h1>
+                </div>
+                <div className="messi">
+                  <div className="messi-img">
+                    <img src={messi} alt="" />
+                    <span>
+                      ‘기록 파괴자’ 메시, 1골 5도움으로 MLS 신기록 작성
+                    </span>
+                  </div>
+
+                  <h6>
+                    리오넬 메시(인터 마이애미)가 미국 무대에서도 여전한 활약을
+                    이어가고 있다.
+                  </h6>
+                  <h6>
+                    리오넬 메시(인터 마이애미)가 미국 무대에서도 여전한 활약을
+                    이어가고 있다.
+                  </h6>
+                  <h6>
+                    리오넬 메시(인터 마이애미)가 미국 무대에서도 여전한 활약을
+                    이어가고 있다.
+                  </h6>
+                  <h6>
+                    리오넬 메시(인터 마이애미)가 미국 무대에서도 여전한 활약을
+                    이어가고 있다.
+                  </h6>
+                  <h6>
+                    리오넬 메시(인터 마이애미)가 미국 무대에서도 여전한 활약을
+                    이어가고 있다.
+                  </h6>
+                  <h6>
+                    리오넬 메시(인터 마이애미)가 미국 무대에서도 여전한 활약을
+                    이어가고 있다.
+                  </h6>
+                </div>
+              </div>
+            </div>
           </div>
+          <span>{data?.data.items[4].link}</span>
         </div>
       </Wrap>
     </>

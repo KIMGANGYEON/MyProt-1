@@ -7,6 +7,7 @@
     color: white;
     height: 40px;
     position: sticky;
+    z-index: 99;
     top: 0;
     width: 100%;
     font-weight: 600;
@@ -42,6 +43,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      position: relative;
+      width: 100%;
       span {
         display: flex;
         color: red;
@@ -56,6 +59,12 @@
         margin-left: 2vw;
         padding-left: 2vw;
         font-weight: 600;
+      }
+      button {
+        position: absolute;
+        top: 20px;
+        right: 100px;
+        display: none;
       }
     }
     .con01 {
@@ -95,6 +104,90 @@
           width: 50%;
           img {
             width: 100%;
+          }
+        }
+      }
+    }
+    .con02 {
+      display: grid;
+      grid-template-columns: 0.9fr 2fr 0.9fr;
+      margin-top: 4vw;
+      gap: 2vw;
+      .con02-right {
+        .con02-right-top {
+          border-top: 1px solid grey;
+          margin-bottom: 1vw;
+          .empty {
+            width: 16px;
+            height: 4px;
+            background-color: red;
+            margin-bottom: 0.5vw;
+          }
+          h1 {
+            text-transform: uppercase;
+            font-size: 12px;
+            font-weight: bold;
+          }
+        }
+        .messi {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          .messi-img {
+            width: 100%;
+            img {
+              width: 100%;
+            }
+            span {
+              font-size: 20px;
+              display: inline-block;
+              margin-bottom: 1vw;
+            }
+          }
+        }
+        h6 {
+          border-top: 1px solid gray;
+          font-size: 16px;
+          padding: 15px 0;
+        }
+      }
+      .con02-center {
+        .con02-center-header {
+          margin-bottom: 1vw;
+          border-top: 1px solid gray;
+          .empty {
+            width: 16px;
+            height: 4px;
+            background-color: red;
+            margin-bottom: 0.5vw;
+          }
+          h1 {
+            text-transform: uppercase;
+            font-size: 12px;
+            font-weight: bold;
+          }
+        }
+        .video-box {
+          width: 100%;
+          video {
+            width: 100%;
+          }
+          h1 {
+            font-size: 25px;
+            font-weight: bold;
+          }
+        }
+        .con02-center-bottom01 {
+          display: flex;
+          border-top: 1px solid grey;
+          padding-top: 1vw;
+          margin-bottom: 1vw;
+          img {
+            width: 25%;
+          }
+          h1 {
+            font-size: 15px;
+            margin-left: 1vw;
           }
         }
       }
