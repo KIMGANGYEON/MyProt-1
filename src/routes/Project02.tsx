@@ -64,7 +64,7 @@ function Project02() {
   const [moveRight, setMoveRight] = useState(0);
   const [arrow, setArrow] = useState(true);
   const onClick01 = () => {
-    setMoveRight(-100);
+    setMoveRight(-15);
     setArrow(false);
     // setTimeout(() => {
     //   setMoveRight(0);
@@ -78,8 +78,10 @@ function Project02() {
 
   useEffect(() => {
     const handleResize = () => {
-      setMoveRight(0);
-      setArrow(true);
+      if (window.innerWidth > 1070) {
+        setMoveRight(0);
+        setArrow(true);
+      }
     };
 
     window.addEventListener("resize", handleResize);
@@ -88,7 +90,6 @@ function Project02() {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-
   return (
     <>
       <Helmet>
@@ -153,7 +154,7 @@ function Project02() {
             <div className="main-hidden">
               <div
                 className="main__header"
-                style={{ transform: `translateX(${moveRight}px)` }}
+                style={{ transform: `translateX(${moveRight}vw)` }}
               >
                 <span>
                   현재 대한민국 뜨거운 주제&nbsp;:&nbsp;<p>출산율</p>
