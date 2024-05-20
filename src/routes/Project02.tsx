@@ -62,9 +62,32 @@ function Project02() {
   }, []);
 
   const [moveRight, setMoveRight] = useState(0);
-  const onClick = () => {
-    setMoveRight(100);
+  const [arrow, setArrow] = useState(true);
+  const onClick01 = () => {
+    setMoveRight(-100);
+    setArrow(false);
+    // setTimeout(() => {
+    //   setMoveRight(0);
+    //   setArrow(true);
+    // }, 5000);
   };
+  const onClick02 = () => {
+    setMoveRight(0);
+    setArrow(true);
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setMoveRight(0);
+      setArrow(true);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <>
@@ -127,20 +150,28 @@ function Project02() {
             </div>
           </div>
           <div className="main">
-            <div
-              className="main__header"
-              style={{ transform: `translateX({${moveRight}}vw)` }}
-            >
-              <span>
-                현재 대한민국 뜨거운 주제&nbsp;:&nbsp;<p>출산율</p>
-              </span>
-              <p>자살율</p>
-              <p>집값</p>
-              <p>빈부격차</p>
-              <p>국민연금</p>
-              <p>네이버 라인</p>
-              <p>청년실업</p>
-              <button onClick={onClick}>→</button>
+            <div className="main-hidden">
+              <div
+                className="main__header"
+                style={{ transform: `translateX(${moveRight}px)` }}
+              >
+                <span>
+                  현재 대한민국 뜨거운 주제&nbsp;:&nbsp;<p>출산율</p>
+                </span>
+                <p>자살율</p>
+                <p>집값</p>
+                <p>빈부격차</p>
+                <p>국민연금</p>
+                <p>네이버 라인</p>
+                <p>청년실업</p>
+              </div>
+              <div className="header-move">
+                {arrow ? (
+                  <button onClick={onClick01}>→</button>
+                ) : (
+                  <button onClick={onClick02}>←</button>
+                )}
+              </div>
             </div>
             <div className="con01">
               <div className="kim">
