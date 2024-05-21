@@ -9,18 +9,20 @@
         }
       }
     }
+
     .main {
       .main-hidden {
         overflow: hidden;
         // width: 100vw;
         .main__header {
-          display: none;
+          flex-wrap: wrap;
         }
       }
       .con01 {
         display: flex;
         flex-direction: column;
         .kim {
+          margin-top: -10px;
           h1 {
             font-size: 35px;
           }
@@ -32,6 +34,54 @@
       .con02 {
         display: flex;
         flex-direction: column;
+      }
+    }
+  }
+  @media (max-width: 1150px) {
+    .hidden-screen {
+      .top {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5vw;
+        padding: 1.2vw;
+        .hide-modal {
+          flex-direction: column;
+          gap: 2vw;
+        }
+        h1 {
+          // display: none;
+        }
+        h2 {
+          font-weight: normal;
+        }
+      }
+      .body {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        .section {
+          align-items: center;
+          .hello {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100px; /* 예시 높이 설정 */
+
+            &::before {
+              content: "CNN";
+              padding: 10px 5px 13px 5px;
+              font-size: 25px;
+              font-weight: bold;
+              background-color: red;
+            }
+          }
+          h1 {
+            font-weight: normal;
+          }
+          span {
+            display: none;
+          }
+        }
       }
     }
   }

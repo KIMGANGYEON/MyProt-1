@@ -37,6 +37,9 @@ interface INewsData {
 
 function Project02() {
   const { isLoading, data } = useQuery<INewsData | any>("allnews", fetchNews);
+  const [hide, setHide] = useState(false);
+  const [hideH1, setHideH1] = useState(true);
+  const [windowSize, setWindowSize] = useState(0);
   useEffect(() => {
     // const fetchNews = async () => {
     //   try {
@@ -61,35 +64,27 @@ function Project02() {
     // fetchNews();
   }, []);
 
-  const [moveRight, setMoveRight] = useState(0);
-  const [arrow, setArrow] = useState(true);
-  const onClick01 = () => {
-    setMoveRight(-15);
-    setArrow(false);
-    // setTimeout(() => {
-    //   setMoveRight(0);
-    //   setArrow(true);
-    // }, 5000);
-  };
-  const onClick02 = () => {
-    setMoveRight(0);
-    setArrow(true);
-  };
-
   useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth > 1070) {
-        setMoveRight(0);
-        setArrow(true);
-      }
+    const handelResize = () => {
+      setWindowSize(window.innerWidth);
     };
 
-    window.addEventListener("resize", handleResize);
+    window.addEventListener("resize", handelResize);
 
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+    // return () => {
+    //   window.removeEventListener("resize", handelResize);
+    // };
+    if (windowSize < 1150) {
+      setHideH1(false);
+    } else if (windowSize > 1150) {
+      setHideH1(true);
+    }
+  }, [{ windowSize }]);
+
+  const onClick = () => {
+    setHide((prev) => !prev);
+  };
+
   return (
     <>
       <Helmet>
@@ -99,7 +94,11 @@ function Project02() {
         <div className="project02">
           <div className="header">
             <div className="left-side">
-              <FontAwesomeIcon className="icon" icon={faBars} />
+              <FontAwesomeIcon
+                className="icon"
+                icon={faBars}
+                onClick={onClick}
+              />
               <div className="red-box">
                 <h1>CNN</h1>
               </div>
@@ -147,15 +146,250 @@ function Project02() {
               <a href="https://edition.cnn.com/live-tv">
                 <span>Watch</span>
               </a>
-              <FontAwesomeIcon className="icon" icon={faMagnifyingGlass} />
+              <FontAwesomeIcon
+                className="icon"
+                icon={faMagnifyingGlass}
+                onClick={onClick}
+              />
             </div>
           </div>
+          {hide ? null : (
+            <div className="hidden-screen">
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  position: "relative",
+                }}
+              >
+                <input type="text" placeholder="검색내용 입력" />
+                <FontAwesomeIcon
+                  className="icon"
+                  icon={faMagnifyingGlass}
+                  style={{
+                    position: "absolute",
+                    right: "0",
+                    color: "black",
+                    fontSize: 20,
+                    paddingRight: "15px",
+                  }}
+                />
+              </div>
+              <div className="top">
+                {hideH1 ? (
+                  <h2>Edition</h2>
+                ) : (
+                  <div>
+                    <h2>Edi</h2>
+                  </div>
+                )}
+                <div className="hide-modal">
+                  <h1>US</h1>
+                  <h1>International</h1>
+                  <h1>Arabic</h1>
+                  <h1>Espanol</h1>
+                </div>
+              </div>
+              <div className="body">
+                <div className="section">
+                  <div className="hello"></div>
+                  <h1>World</h1>
+                  <div className="span-box">
+                    <span>Africa</span>
+                    <span>Americas</span>
+                    <span>Asia</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                  </div>
+                </div>
+                <div className="section">
+                  <h1>NEWS</h1>
+                  <div className="span-box">
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                  </div>
+                </div>
+                <div className="section">
+                  <h1>NEWS</h1>
+                  <div className="span-box">
+                    <span>Foreseeable Future</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                  </div>
+                </div>
+                <div className="section">
+                  <h1>NEWS</h1>
+                  <div className="span-box">
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                  </div>
+                </div>
+                <div className="section">
+                  <h1>NEWS</h1>
+                  <div className="span-box">
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                  </div>
+                </div>
+                <div className="section">
+                  <h1>NEWS</h1>
+                  <div className="span-box">
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                  </div>
+                </div>
+                <div className="section">
+                  <h1>NEWS</h1>
+                  <div className="span-box">
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                  </div>
+                </div>
+                <div className="section">
+                  <h1>NEWS</h1>
+                  <div className="span-box">
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                  </div>
+                </div>
+                <div className="section">
+                  <h1>NEWS</h1>
+                  <div className="span-box">
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                  </div>
+                </div>
+                <div className="section">
+                  <h1>NEWS</h1>
+                  <div className="span-box">
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                  </div>
+                </div>
+                <div className="section">
+                  <h1>NEWS</h1>
+                  <div className="span-box">
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                  </div>
+                </div>
+                <div className="section">
+                  <h1>NEWS</h1>
+                  <div className="span-box">
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                  </div>
+                </div>
+                <div className="section">
+                  <h1>NEWS</h1>
+                  <div className="span-box">
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                  </div>
+                </div>
+                <div className="section">
+                  <h1>NEWS</h1>
+                  <div className="span-box">
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                  </div>
+                </div>
+                <div className="section">
+                  <h1>NEWS</h1>
+                  <div className="span-box">
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                  </div>
+                </div>
+                <div className="section">
+                  <h1>NEWS</h1>
+                  <div className="span-box">
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                    <span>hello</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
           <div className="main">
             <div className="main-hidden">
-              <div
-                className="main__header"
-                style={{ transform: `translateX(${moveRight}vw)` }}
-              >
+              <div className="main__header">
                 <span>
                   현재 대한민국 뜨거운 주제&nbsp;:&nbsp;<p>출산율</p>
                 </span>
@@ -165,13 +399,6 @@ function Project02() {
                 <p>국민연금</p>
                 <p>네이버 라인</p>
                 <p>청년실업</p>
-              </div>
-              <div className="header-move">
-                {arrow ? (
-                  <button onClick={onClick01}>→</button>
-                ) : (
-                  <button onClick={onClick02}>←</button>
-                )}
               </div>
             </div>
             <div className="con01">
