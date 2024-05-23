@@ -8,7 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { fetchNews } from "../api";
 
 import styled from "styled-components";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faL } from "@fortawesome/free-solid-svg-icons";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -37,8 +37,12 @@ interface INewsData {
 
 function Project02() {
   const { isLoading, data } = useQuery<INewsData | any>("allnews", fetchNews);
-  const [hide, setHide] = useState(false);
-  const [hideH1, setHideH1] = useState(true);
+  const [hide, setHide] = useState(true);
+
+  const [setbtn, setSetbtn] = useState(0);
+
+  const [modal, setModal] = useState("");
+  const [rotateBtn, setRotateBtn] = useState(0);
   const [windowSize, setWindowSize] = useState(0);
   useEffect(() => {
     // const fetchNews = async () => {
@@ -67,22 +71,32 @@ function Project02() {
   useEffect(() => {
     const handelResize = () => {
       setWindowSize(window.innerWidth);
+
+      // if (windowSize > 1070 && modal === "none") {
+      //   setModal("block");
+      // }
+      if (windowSize < 1070) {
+        console.log(1);
+      }
     };
 
     window.addEventListener("resize", handelResize);
-
-    // return () => {
-    //   window.removeEventListener("resize", handelResize);
-    // };
-    if (windowSize < 1150) {
-      setHideH1(false);
-    } else if (windowSize > 1150) {
-      setHideH1(true);
-    }
   }, [{ windowSize }]);
 
   const onClick = () => {
     setHide((prev) => !prev);
+  };
+
+  const rotatebtn = () => {
+    setSetbtn((prev) => prev + 1);
+    if (setbtn % 2 == 0) {
+      setRotateBtn(180);
+      setModal("block");
+    }
+    if (setbtn % 2 !== 0) {
+      setRotateBtn(0);
+      setModal("");
+    }
   };
 
   return (
@@ -176,18 +190,32 @@ function Project02() {
                 />
               </div>
               <div className="top">
-                {hideH1 ? (
-                  <h2>Edition</h2>
-                ) : (
-                  <div>
-                    <h2>Edi</h2>
+                <div className="btn-box">
+                  <h2>EdEdition</h2>
+                  <button
+                    style={{
+                      backgroundColor: "transparent",
+                      border: "none",
+                      color: "white",
+                      fontSize: 20,
+                      transform: `rotate(${rotateBtn}deg)`,
+                      transition: "all 0.5s",
+                    }}
+                    onClick={rotatebtn}
+                  >
+                    ⇓
+                  </button>
+                </div>
+                <div
+                  className="hide-modal-wrap"
+                  style={{ display: `${modal}` }}
+                >
+                  <div className="hide-modal">
+                    <h1>US</h1>
+                    <h1>International</h1>
+                    <h1>Arabic</h1>
+                    <h1>Espanol</h1>
                   </div>
-                )}
-                <div className="hide-modal">
-                  <h1>US</h1>
-                  <h1>International</h1>
-                  <h1>Arabic</h1>
-                  <h1>Espanol</h1>
                 </div>
               </div>
               <div className="body">
@@ -566,7 +594,7 @@ function Project02() {
               </div>
             </div>
           </div>
-          <span>{data?.data.items[4].link}</span>
+          {/* <span>{data?.data.items[4].link}</span> */}
         </div>
       </Wrap>
     </>

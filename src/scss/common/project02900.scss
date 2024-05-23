@@ -37,16 +37,32 @@
       }
     }
   }
-  @media (max-width: 1150px) {
+  @media (max-width: 1070px) {
     .hidden-screen {
       .top {
         flex-direction: column;
         align-items: center;
-        gap: 1.5vw;
-        padding: 1.2vw;
-        .hide-modal {
-          flex-direction: column;
-          gap: 2vw;
+        gap: 2vw;
+        display: flex;
+        align-items: center;
+        .btn-box {
+          margin: 8px 0;
+          button {
+            display: block;
+          }
+        }
+        .hide-modal-wrap {
+          display: none;
+          .hide-modal {
+            flex-direction: column;
+            gap: 2vw;
+
+            h1 {
+              &:last-child {
+                margin-bottom: 20px;
+              }
+            }
+          }
         }
         h1 {
           // display: none;
@@ -69,7 +85,7 @@
 
             &::before {
               content: "CNN";
-              padding: 10px 5px 13px 5px;
+              padding: 15px 5px 19px 5px;
               font-size: 25px;
               font-weight: bold;
               background-color: red;
